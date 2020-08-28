@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import com.jb.app.ws.ui.model.request.UserDetailsRequestModel;
 import com.jb.app.ws.ui.model.response.UserRest;
 import com.jb.app.ws.userservice.UserService;
 
+@Service
 public class UserServiceImpl implements UserService{
 
 	Map<String, UserRest> users;
@@ -22,8 +22,7 @@ public class UserServiceImpl implements UserService{
 		returnValue.setFirstName(userDetails.getFirstName());
 		returnValue.setLastName(userDetails.getLastName());
 		returnValue.setPassword(userDetails.getPassword());
-		//returnValue.setUserId("123");
-		
+				
 		String userId = UUID.randomUUID().toString(); //generate random userId
 		returnValue.setUserId(userId);
 		
